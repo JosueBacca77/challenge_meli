@@ -1,3 +1,4 @@
+"use client";
 import HeaderContent from "@/features/HeaderContent/HeaderContent";
 import styles from "./styles.module.scss";
 

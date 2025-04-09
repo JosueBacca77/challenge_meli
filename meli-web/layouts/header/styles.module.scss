@@ -4,8 +4,11 @@
   background-color: $primary-background;
   height: 70px;
   display: flex;
+  padding: 0 20%;
 }
 
 .headerContent {
   margin: auto;
+  width: 100%;
+  // display: flex;
 }

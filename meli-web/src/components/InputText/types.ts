@@ -3,6 +3,5 @@ export interface InputTextProps {
   placeholder: string;
   name: string;
   id: string;
-  width: number;
   onChange: (value: string) => void;
 }
