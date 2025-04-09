@@ -1,0 +1,11 @@
+@import "../../app/variables.scss";
+
+.header {
+  background-color: $primary-background;
+  height: 70px;
+  display: flex;
+}
+
+.headerContent {
+  margin: auto;
+}
