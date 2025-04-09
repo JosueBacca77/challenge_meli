@@ -4,4 +4,5 @@ export interface InputTextProps {
   name: string;
   id: string;
   onChange: (value: string) => void;
+  onKeyDown?: (e: React.KeyboardEvent<HTMLInputElement>) => void;
 }

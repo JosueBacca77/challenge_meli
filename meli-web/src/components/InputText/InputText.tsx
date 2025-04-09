@@ -2,7 +2,7 @@ import { InputTextProps } from "./types";
 import styles from "./InputText.module.scss";
 
 export default function InputText(props: InputTextProps) {
-  const { value, placeholder, name, id, onChange } = props;
+  const { value, placeholder, name, id, onChange, onKeyDown } = props;
 
   return (
     <input
@@ -13,6 +13,7 @@ export default function InputText(props: InputTextProps) {
       name={name}
       value={value}
       onChange={(e) => onChange(e.target.value)}
+      onKeyDown={onKeyDown}
     />
   );
 }
