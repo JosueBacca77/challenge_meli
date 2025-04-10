@@ -1,20 +1,35 @@
-import { TextProps, TextSizes, TextStyles } from "./types";
 import styles from "./text.module.scss";
+import classNames from "../../../app/classes.module.scss";
+import {
+  TextColors,
+  TextProps,
+  TextSizes,
+  TextStyles,
+  TextWeights,
+} from "./types";
 
-export default function Text(props: TextProps) {
-  const { fontSize, fontStyle, color, fontWeight, value, className } = props;
+const Text = ({
+  color = TextColors.Primary,
+  fontWeight = TextWeights.W400,
+  fontSize = TextSizes.BASE,
+  value,
+}: TextProps) => {
+  const fontColorClass = classNames[color];
+  const weightClass = classNames[fontWeight];
 
   const style: React.CSSProperties = {
     fontSize: TextStyles[fontSize as TextSizes]?.fontSize,
     lineHeight: TextStyles[fontSize as TextSizes]?.lineHeight,
-    fontStyle,
-    fontWeight,
-    color,
   };
 
   return (
-    <span className={`${styles.textBase} ${className ?? ""}`} style={style}>
+    <span
+      className={`${styles.textBase} ${fontColorClass} ${weightClass}`}
+      style={style}
+    >
       {value}
     </span>
   );
-}
+};
+
+export default Text;

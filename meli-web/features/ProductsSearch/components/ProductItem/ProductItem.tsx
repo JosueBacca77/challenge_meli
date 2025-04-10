@@ -1,5 +1,7 @@
 import Image from "next/image";
 import styles from "./productItem.module.scss";
+import Text from "@/src/components/Text/Text";
+import { TextSizes } from "@/src/components/Text/types";
 
 export default function ProductItem() {
   return (
@@ -13,10 +15,19 @@ export default function ProductItem() {
       />
       <div className={styles.productInfo}>
         <div className={styles.productInfoDetail}>
-          <div className={styles.productInfoPrice}>price</div>
-          <div>descrip</div>
+          <div className={styles.productInfoPrice}>
+            <Text fontSize={TextSizes.XL_2} value={"$1.980"} />
+          </div>
+          <Text
+            fontSize={TextSizes.LG}
+            value={
+              "Apple Ipod Touch 5g 16gb Negro Igual A Nuevo Completo Unico!"
+            }
+          />
         </div>
-        <div className={styles.productInfoLocation}>location</div>
+        <div className={styles.productInfoLocation}>
+          <Text fontSize={TextSizes.XS} value={"Capital Federal"} />
+        </div>
       </div>
     </div>
   );

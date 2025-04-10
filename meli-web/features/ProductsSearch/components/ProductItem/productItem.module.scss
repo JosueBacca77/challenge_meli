@@ -4,6 +4,7 @@
   gap: 1rem;
   & > .productItemImage {
     border-radius: 4px;
+    object-fit: contain;
   }
   & > .productInfo {
     display: flex;

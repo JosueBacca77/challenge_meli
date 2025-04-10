@@ -1,0 +1,25 @@
+@import "./variables.scss";
+
+.fw400 {
+  font-weight: 400;
+}
+
+.fw500 {
+  font-weight: 500;
+}
+
+.fw600 {
+  font-weight: 600;
+}
+
+.primaryTextColor {
+  color: $primary-text;
+}
+
+.secondaryTextColor {
+  color: $secondary-text;
+}
+
+.tertiaryTextColor {
+  color: $tertiary-text;
+}

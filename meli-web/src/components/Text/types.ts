@@ -14,6 +14,18 @@ export enum TextSizes {
   XL_9 = "text-9xl", // 128px
 }
 
+export enum TextColors {
+  Primary = "primaryTextColor",
+  Secondary = "secondaryTextColor",
+  Tertiary = "tertiaryTextColor",
+}
+
+export enum TextWeights {
+  W400 = "fw400",
+  W500 = "fw500",
+  W600 = "fw600",
+}
+
 export const TextStyles: Record<
   TextSizes,
   { fontSize: string; lineHeight: string }
@@ -34,10 +46,9 @@ export const TextStyles: Record<
 };
 
 export interface TextProps {
-  fontSize: TextSizes;
+  fontSize?: TextSizes;
   value: string;
-  color?: string;
+  color?: TextColors;
   fontStyle?: "normal" | "italic" | "oblique";
-  fontWeight?: string;
-  className?: string;
+  fontWeight?: TextWeights;
 }
