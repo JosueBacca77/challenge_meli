@@ -1,6 +1,8 @@
 import Header from "@/layouts/header/Header";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import "./globals.css";
+import styles from "./main.module.scss";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -18,7 +20,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={inter.className}>
         <Header />
-        <main>{children}</main>
+        <main className={styles.main}>{children}</main>
       </body>
     </html>
   );

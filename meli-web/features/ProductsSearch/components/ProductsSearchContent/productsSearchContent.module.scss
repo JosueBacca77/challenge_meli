@@ -1,0 +1,9 @@
+@import "./../../../../app/variables.scss";
+
+.productsSearchContent {
+  margin: auto;
+  width: 80%;
+  background-color: $primary-background;
+  display: flex;
+  flex-direction: column;
+}

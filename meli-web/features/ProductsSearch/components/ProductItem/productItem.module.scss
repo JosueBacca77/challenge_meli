@@ -1,0 +1,22 @@
+.productItemWrapper {
+  display: flex;
+  padding: 1rem;
+  gap: 1rem;
+  & > .productItemImage {
+    border-radius: 4px;
+  }
+  & > .productInfo {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    & > .productInfoDetail {
+      & > .productInfoPrice {
+        margin-bottom: 2rem;
+      }
+    }
+
+    & > .productInfoLocation {
+      margin-right: 8rem;
+    }
+  }
+}

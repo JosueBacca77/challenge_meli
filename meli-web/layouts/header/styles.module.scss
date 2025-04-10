@@ -1,10 +1,11 @@
 @import "../../app/variables.scss";
 
 .header {
-  background-color: $primary-background;
+  background-color: $primary-filled;
   height: 70px;
   display: flex;
   padding: 0 20%;
+  margin: 0;
 }
 
 .headerContent {

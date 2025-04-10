@@ -1,3 +1,10 @@
+"use client";
+import ProductsSearchContent from "./components/ProductsSearchContent/ProductsSearchContent";
+
 export default function ProductsSearch() {
-  return <div>ProductsSearch</div>;
+  return (
+    <div>
+      <ProductsSearchContent />
+    </div>
+  );
 }
