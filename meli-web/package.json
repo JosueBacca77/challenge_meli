@@ -5,10 +5,15 @@
   "scripts": {
     "dev": "next dev --turbopack",
     "build": "next build",
+    "build:development": " ENVIRONMENT=development next build",
+    "build:test": "ENVIRONMENT=test next build",
+    "build:production": "ENVIRONMENT=production next build",
     "start": "next start",
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^1.8.4",
+    "env-var": "^7.5.0",
     "next": "15.2.5",
     "react": "^19.0.0",
     "react-dom": "^19.0.0"

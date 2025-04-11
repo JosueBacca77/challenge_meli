@@ -8,6 +8,20 @@ import {
   TextWeights,
 } from "./types";
 
+/**
+ * A generic text component.
+ *
+ * @example
+ * <Text color={TextColors.Primary} fontWeight={TextWeights.W500} fontSize={TextSizes.XL}>
+ *   This is a large, bold, primary text.
+ * </Text>
+ *
+ * @param {TextColors} [color=TextColors.Primary] - The color of the text
+ * @param {TextWeights} [fontWeight=TextWeights.W400] - The weight of the text
+ * @param {TextSizes} [fontSize=TextSizes.BASE] - The size of the text
+ * @param {string} value - The value of the text
+ * @returns {JSX.Element} The rendered text component
+ */
 const Text = ({
   color = TextColors.Primary,
   fontWeight = TextWeights.W400,

@@ -17,9 +17,8 @@ export default function BreadCrumb(props: BreadCrumbProps) {
     <div className={styles.breadCrumbWrapper}>
       {items.map((item: string, i: number, items: string[]) =>
         i === items.length - 1 ? (
-          <Link href={`${SEARCH_REDIRECTION}${item}`}>
+          <Link href={`${SEARCH_REDIRECTION}${item}`} key={item}>
             <Text
-              key={item}
               fontSize={TextSizes.SM}
               color={TextColors.Secondary}
               value={item}

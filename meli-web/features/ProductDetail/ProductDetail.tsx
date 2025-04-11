@@ -10,8 +10,15 @@ import {
 import { LOREM } from "./types";
 import Button from "@/src/components/Button/Button";
 import { ButtonVariant } from "@/src/components/Button/types";
+import { useSearchParams } from "next/navigation";
+import useGetItemDescription from "./useGetItemDescription/useGetItemDescription";
 
 export default function ProductDetail() {
+  const searchParams = useSearchParams();
+
+  const idValue: string | null = searchParams.get("id");
+
+  const getItemDescription = useGetItemDescription(idValue || "");
   return (
     <div className={styles.productDetailWrapper}>
       <div className={styles.productDetailInfo}>
