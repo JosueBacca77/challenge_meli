@@ -10,7 +10,7 @@ const SearchButtonIcon = memo(function SearchButtonIcon(
 
   return (
     <button className={styles.searchButtonIcon} onClick={onClick}>
-      <Image src="/ic_search.png" alt="lupa" width={18} height={18} />
+      <Image src="/ic_search.png" alt="lupa" width={24} height={24} />
     </button>
   );
 });

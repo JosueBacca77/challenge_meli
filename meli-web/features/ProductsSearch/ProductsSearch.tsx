@@ -1,10 +1,14 @@
 "use client";
-import ProductsSearchContent from "./components/ProductsSearchContent/ProductsSearchContent";
+import ProductItem from "./components/ProductItem/ProductItem";
+import styles from "./productsSearch.module.scss";
 
 export default function ProductsSearch() {
+  const items: number[] = [1, 2, 3, 4];
   return (
-    <div>
-      <ProductsSearchContent />
+    <div className={styles.productsSearchContent}>
+      {items.map((item: number) => (
+        <ProductItem key={item} />
+      ))}
     </div>
   );
 }

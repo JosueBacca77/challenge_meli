@@ -5,8 +5,10 @@ export enum TextSizes {
   LG = "text-lg", // 18px
   XL = "text-xl", // 20px
   XL_2 = "text-2xl", // 24px
+  CUSTOM_28 = "text-custom-28", // 28px
   XL_3 = "text-3xl", // 30px
   XL_4 = "text-4xl", // 36px
+  CUSTOM_46 = "text-custom-46", // 46px
   XL_5 = "text-5xl", // 48px
   XL_6 = "text-6xl", // 60px
   XL_7 = "text-7xl", // 72px
@@ -18,6 +20,7 @@ export enum TextColors {
   Primary = "primaryTextColor",
   Secondary = "secondaryTextColor",
   Tertiary = "tertiaryTextColor",
+  PrimaryBUtton = "primaryButtonTextColor",
 }
 
 export enum TextWeights {
@@ -36,8 +39,10 @@ export const TextStyles: Record<
   [TextSizes.LG]: { fontSize: "1.125rem", lineHeight: "1.75rem" }, // 18px, 28px
   [TextSizes.XL]: { fontSize: "1.25rem", lineHeight: "1.75rem" }, // 20px, 28px
   [TextSizes.XL_2]: { fontSize: "1.5rem", lineHeight: "2rem" }, // 24px, 32px
+  [TextSizes.CUSTOM_28]: { fontSize: "1.75rem", lineHeight: "2rem" }, // 28px, 32px
   [TextSizes.XL_3]: { fontSize: "1.875rem", lineHeight: "2.25rem" }, // 30px, 36px
   [TextSizes.XL_4]: { fontSize: "2.25rem", lineHeight: "2.5rem" }, // 36px, 40px
+  [TextSizes.CUSTOM_46]: { fontSize: "2.75rem", lineHeight: "2.5rem" }, // 46px, 1
   [TextSizes.XL_5]: { fontSize: "3rem", lineHeight: "1" }, // 48px, 1
   [TextSizes.XL_6]: { fontSize: "3.75rem", lineHeight: "1" }, // 60px, 1
   [TextSizes.XL_7]: { fontSize: "4.5rem", lineHeight: "1" }, // 72px, 1
