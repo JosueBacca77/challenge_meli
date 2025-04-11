@@ -1,0 +1,9 @@
+.breadCrumbWrapper {
+  padding: 1rem 0;
+  display: flex;
+  & > .categoryWrapper {
+    display: flex;
+    gap: 0.5rem;
+    padding-right: 0.5rem;
+  }
+}

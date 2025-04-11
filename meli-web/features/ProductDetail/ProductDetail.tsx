@@ -2,7 +2,11 @@
 import Image from "next/image";
 import styles from "./productDetail.module.scss";
 import Text from "@/src/components/Text/Text";
-import { TextSizes, TextWeights } from "@/src/components/Text/types";
+import {
+  TextColors,
+  TextSizes,
+  TextWeights,
+} from "@/src/components/Text/types";
 import { LOREM } from "./types";
 import Button from "@/src/components/Button/Button";
 import { ButtonVariant } from "@/src/components/Button/types";
@@ -44,7 +48,7 @@ export default function ProductDetail() {
           fontSize={TextSizes.CUSTOM_28}
           value={"Descripción del producto"}
         />
-        <Text value={LOREM} />
+        <Text color={TextColors.Secondary} value={LOREM} />
       </div>
     </div>
   );
