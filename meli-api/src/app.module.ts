@@ -1,10 +1,10 @@
-import { Module } from '@nestjs/common';
-import { AppController } from './app.controller';
-import { AppService } from './app.service';
+import { Module } from "@nestjs/common";
+import { ItemsModule } from "./items/items.module";
+import { MeliApiItemsRepositoryModule } from "./repositories/meli-api-repository/meli-api-items-repository/meli-api-items-repository.module";
 
 @Module({
-  imports: [],
-  controllers: [AppController],
-  providers: [AppService],
+  imports: [ItemsModule, MeliApiItemsRepositoryModule],
+  controllers: [],
+  providers: [],
 })
 export class AppModule {}

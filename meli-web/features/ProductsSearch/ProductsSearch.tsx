@@ -3,6 +3,7 @@ import ProductItem from "./components/ProductItem/ProductItem";
 import styles from "./productsSearch.module.scss";
 import { useSearchParams } from "next/navigation";
 import useGetItems from "./hooks/useGetItems/useGetItems";
+import { useFirstRender } from "./hook";
 
 export default function ProductsSearch() {
   const items: number[] = [1, 2, 3, 4];
@@ -12,6 +13,10 @@ export default function ProductsSearch() {
   const searchValue: string | null = searchParams.get("search");
 
   const getItems = useGetItems(searchValue || "");
+
+  const first = useFirstRender();
+
+  console.log("IS FIRST", first.isFirst);
 
   return (
     <div className={styles.productsSearchContent}>
