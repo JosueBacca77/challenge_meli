@@ -7,6 +7,11 @@ export type SearchItemsResponse = {
   author: Author;
 };
 
+export type GetItemResponse = {
+  item: Item;
+  author: Author;
+};
+
 export type GetItemDescriptionResponse = {
   item: ItemDescription;
   author: Author;

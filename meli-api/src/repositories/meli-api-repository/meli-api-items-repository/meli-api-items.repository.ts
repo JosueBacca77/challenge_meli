@@ -1,14 +1,22 @@
 import { Injectable } from "@nestjs/common";
 import HttpService from "src/common/http/http.service";
-import { Item } from "src/items/entities/item.entity";
 import { HttpError } from "src/common/http/types";
-import { GetItemDescriptionApiResponse, SearchItemsApiResponse } from "./types";
-import { AUTHOR } from "src/common/consts";
+import {
+  GetItemApiResponse,
+  GetItemDescriptionApiResponse,
+  SearchItemsApiResponse,
+} from "./types";
 import { ItemsRepositoryInterface } from "src/repositories/interfaces/items-repository.interface";
 import {
   GetItemDescriptionResponse,
+  GetItemResponse,
   SearchItemsResponse,
 } from "src/items/types";
+import {
+  getItemAdapter,
+  getItemDescriptionAdapter,
+  searchItemsAdapter,
+} from "./adapters/search-items.adapter";
 
 @Injectable()
 export class MeliApiItemsRepository implements ItemsRepositoryInterface {
@@ -26,14 +34,7 @@ export class MeliApiItemsRepository implements ItemsRepositoryInterface {
         params,
       });
 
-      const response: SearchItemsResponse = {
-        categories: data.categories,
-        items: data.items,
-        author: {
-          name: AUTHOR.name,
-          lastname: AUTHOR.lastname,
-        },
-      };
+      const response: SearchItemsResponse = searchItemsAdapter(data);
 
       return Promise.resolve(response);
     } catch (error) {
@@ -48,13 +49,15 @@ export class MeliApiItemsRepository implements ItemsRepositoryInterface {
     }
   }
 
-  async getItemById(id: string): Promise<Item> {
+  async getItemById(id: string): Promise<GetItemResponse> {
     try {
-      const data = await this.http.get({
+      const data: GetItemApiResponse = await this.http.get({
         endpoint: `${this.endpoint}/items/${id}`,
       });
 
-      return Promise.resolve(data);
+      const response: GetItemResponse = getItemAdapter(data);
+
+      return Promise.resolve(response);
     } catch (error) {
       const httpError: HttpError = {
         statusCode: error.response?.status || 500, // Si no existe response, 500 por defecto
@@ -73,13 +76,8 @@ export class MeliApiItemsRepository implements ItemsRepositoryInterface {
         endpoint: `${this.endpoint}/items/${id}/description`,
       });
 
-      const response: GetItemDescriptionResponse = {
-        item: data.item,
-        author: {
-          name: AUTHOR.name,
-          lastname: AUTHOR.lastname,
-        },
-      };
+      const response: GetItemDescriptionResponse =
+        getItemDescriptionAdapter(data);
 
       return Promise.resolve(response);
     } catch (error) {
