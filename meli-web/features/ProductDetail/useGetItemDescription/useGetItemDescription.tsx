@@ -5,7 +5,7 @@ import { ItemsService } from "@/services/ItemsService/Items.service";
 import { isHttpError } from "@/utils/http";
 
 export default function useGetItemDescription(idValue: string) {
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState(true);
   const [error, setError] = useState<HttpError | null>(null);
   const [itemDescription, setItemDescription] =
     useState<ItemDescription | null>(null);

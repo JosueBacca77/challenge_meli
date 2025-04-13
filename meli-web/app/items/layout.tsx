@@ -1,5 +1,7 @@
+"use client";
 import BreadCrumb from "@/layouts/breadCrumb/BreadCrumb";
 import styles from "./layout.module.scss";
+import { ItemsProvider } from "@/src/context/items/ItemsProvider";
 
 export default function ItemsLayout({
   children,
@@ -8,16 +10,10 @@ export default function ItemsLayout({
 }>) {
   return (
     <div className={styles.layoutItemsWrapper}>
-      <BreadCrumb
-        items={[
-          "Electrónica, Audio y Video",
-          "iPod",
-          "Reproductores",
-          "iPod Touch",
-          "32GB",
-        ]}
-      />{" "}
-      {children}
+      <ItemsProvider>
+        <BreadCrumb />
+        {children}
+      </ItemsProvider>
     </div>
   );
 }

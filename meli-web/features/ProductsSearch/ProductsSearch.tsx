@@ -3,26 +3,34 @@ import ProductItem from "./components/ProductItem/ProductItem";
 import styles from "./productsSearch.module.scss";
 import { useSearchParams } from "next/navigation";
 import useGetItems from "./hooks/useGetItems/useGetItems";
-import { useFirstRender } from "./hook";
+import { useEffect } from "react";
+import { useItems } from "@/src/context/items/ItemsProvider";
+import { Item } from "@/models/Item.model";
 
 export default function ProductsSearch() {
-  const items: number[] = [1, 2, 3, 4];
-
   const searchParams = useSearchParams();
+
+  const { items, setItems, setCategories } = useItems();
 
   const searchValue: string | null = searchParams.get("search");
 
   const getItems = useGetItems(searchValue || "");
 
-  const first = useFirstRender();
+  useEffect(() => {
+    const response = getItems.response;
+    if (!response) return;
 
-  console.log("IS FIRST", first.isFirst);
+    setItems(response.items);
+    setCategories(response.categories);
+  }, [getItems.response]);
 
   return (
     <div className={styles.productsSearchContent}>
-      {items.map((item: number) => (
-        <ProductItem key={item} />
-      ))}
+      {!getItems.loading &&
+        !getItems.error &&
+        items.map((item: Item) => <ProductItem item={item} key={item.id} />)}
+      {getItems.loading && !getItems.response && <>Cargando</>}
+      {!getItems.loading && !items && <>No se han encontrado resultados</>}
     </div>
   );
 }

@@ -11,6 +11,7 @@ export interface Item {
   picture: string;
   condition: string;
   free_shopping: boolean;
+  location: string;
 }
 
 export interface ItemDescription extends Item {

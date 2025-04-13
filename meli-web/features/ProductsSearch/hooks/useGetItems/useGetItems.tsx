@@ -1,13 +1,13 @@
 import { useEffect, useState } from "react";
 import { HttpError } from "@/utils/types";
-import { Item } from "@/models/Item.model";
 import { ItemsService } from "@/services/ItemsService/Items.service";
 import { isHttpError } from "@/utils/http";
+import { GetItemsResponse } from "@/services/ItemsService/types";
 
 export default function useGetItems(searchValue: string) {
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState<HttpError | null>(null);
-  const [items, setItems] = useState<Item[] | null>(null);
+  const [response, setResponse] = useState<GetItemsResponse | null>(null);
 
   useEffect(() => {
     get(searchValue);
@@ -24,8 +24,7 @@ export default function useGetItems(searchValue: string) {
         searchValue,
         signal: new AbortController().signal,
       });
-      console.log("response items", response);
-      setItems(response.items);
+      setResponse(response);
     } catch (err) {
       if (isHttpError(err)) {
         setError(err);
@@ -40,5 +39,5 @@ export default function useGetItems(searchValue: string) {
     }
   };
 
-  return { items, loading, error, get };
+  return { response, loading, error, get };
 }

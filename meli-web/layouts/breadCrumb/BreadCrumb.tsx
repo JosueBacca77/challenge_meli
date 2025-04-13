@@ -1,5 +1,4 @@
 "use client";
-import { BreadCrumbProps } from "./types";
 import styles from "./breadCrumb.module.scss";
 import Text from "@/src/components/Text/Text";
 import {
@@ -8,14 +7,15 @@ import {
   TextWeights,
 } from "@/src/components/Text/types";
 import Link from "next/link";
+import { useItems } from "@/src/context/items/ItemsProvider";
 
 const SEARCH_REDIRECTION = "/items?search=";
 
-export default function BreadCrumb(props: BreadCrumbProps) {
-  const { items } = props;
+export default function BreadCrumb() {
+  const { categories } = useItems();
   return (
     <div className={styles.breadCrumbWrapper}>
-      {items.map((item: string, i: number, items: string[]) =>
+      {categories.map((item: string, i: number, items: string[]) =>
         i === items.length - 1 ? (
           <Link href={`${SEARCH_REDIRECTION}${item}`} key={item}>
             <Text

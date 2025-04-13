@@ -1,4 +1,3 @@
-import { Item, ItemDescription } from "src/items/entities/item.entity";
 import {
   GetItemApiResponse,
   GetItemDescriptionApiResponse,
@@ -6,10 +5,29 @@ import {
 } from "../types";
 import { mockCategoryTree, MOCKED_ITEMS } from "./data";
 
+function normalizeText(text: string): string {
+  return text
+    .normalize("NFD")
+    .replace(/[\u0300-\u036f]/g, "")
+    .toLowerCase();
+}
+
 export const mockSearchItems = (query: string): SearchItemsApiResponse => {
-  const filteredItems = MOCKED_ITEMS.filter((item) =>
-    item.title.toLowerCase().includes(query.toLowerCase())
-  );
+  const normalizedQuery = normalizeText(query);
+
+  const filteredItems = MOCKED_ITEMS.filter((item) => {
+    const normalizedTitle = normalizeText(item.title);
+
+    const categoryPath = mockCategoryTree[item.category] || [];
+    const normalizedCategoryPath = categoryPath.map(normalizeText);
+
+    const matchesTitle = normalizedTitle.includes(normalizedQuery);
+    const matchesCategory = normalizedCategoryPath.some((category) =>
+      category.includes(normalizedQuery)
+    );
+
+    return matchesTitle || matchesCategory;
+  });
 
   return {
     items: filteredItems,

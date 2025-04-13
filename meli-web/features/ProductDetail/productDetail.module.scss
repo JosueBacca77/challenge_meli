@@ -11,6 +11,9 @@
     & > .productImage {
       margin-left: 122px;
       margin-top: 62px;
+      & > .productItemImage {
+        object-fit: contain;
+      }
     }
     & > .productDetaiSummary {
       width: 372px;
@@ -18,11 +21,15 @@
         margin-bottom: 1rem;
       }
 
-      & > .productDetailPrice {
+      & > .productDetail {
         display: flex;
         flex-direction: column;
         gap: 2rem;
         justify-content: space-between;
+        & > .productDetailPrice {
+          display: flex;
+          align-items: flex-start;
+        }
       }
     }
   }

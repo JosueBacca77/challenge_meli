@@ -35,23 +35,15 @@ export class ItemsService {
         searchValue ? `?search=${searchValue}` : ""
       }`;
 
-      debugger;
       const data: GetItemsResponse = await this.repository.get({
         endpoint,
         signal,
       });
 
-      // const data = {
-      //   items: [],
-      //   author: { name: "", lastname: "" },
-      //   categories: [],
-      // };
-
       return Promise.resolve(data);
     } catch (error: any) {
-      // Captura el error de Axios y formatea para que devuelva un HttpError consistente
       const httpError: HttpError = {
-        statusCode: error.response?.status || 500, // Si no existe response, 500 por defecto
+        statusCode: error.response?.status || 500,
         message:
           error.response?.data?.message || "An unexpected error occurred",
       };
@@ -74,9 +66,8 @@ export class ItemsService {
 
       return Promise.resolve(data);
     } catch (error: any) {
-      // Captura el error de Axios y formatea para que devuelva un HttpError consistente
       const httpError: HttpError = {
-        statusCode: error.response?.status || 500, // Si no existe response, 500 por defecto
+        statusCode: error.response?.status || 500,
         message:
           error.response?.data?.message || "An unexpected error occurred",
       };
@@ -93,30 +84,15 @@ export class ItemsService {
 
       const endpoint = `${this.endpoint}/${id}/description`;
 
-      debugger;
       const data: GetItemDescriptionResponse = await this.repository.get({
         endpoint,
         signal,
       });
 
-      // const data = {
-      //   item: {
-      //     id: "",
-      //     title: "",
-      //     condition: "",
-      //     free_shopping: true,
-      //     picture: "",
-      //     price: { amount: 0, currency: "", decimals: 0 },
-      //     sold_quantity: 0,
-      //     description: "",
-      //   },
-      //   author: { name: "", lastname: "" },
-      // };
       return Promise.resolve(data);
     } catch (error: any) {
-      // Captura el error de Axios y formatea para que devuelva un HttpError consistente
       const httpError: HttpError = {
-        statusCode: error.response?.status || 500, // Si no existe response, 500 por defecto
+        statusCode: error.response?.status || 500,
         message:
           error.response?.data?.message || "An unexpected error occurred",
       };
