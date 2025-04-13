@@ -16,7 +16,7 @@ export class ItemsService {
   private repository: Repository;
 
   constructor() {
-    this.endpoint = `${ENVS.MELI_API_KEY}/items`;
+    this.endpoint = `${ENVS.MELI_CORE_URL}/items`;
     this.repository = new Repository();
   }
 
@@ -35,16 +35,17 @@ export class ItemsService {
         searchValue ? `?search=${searchValue}` : ""
       }`;
 
-      // const data: GetItemsResponse = await this.repository.get({
-      //   endpoint,
-      //   signal,
-      // });
+      debugger;
+      const data: GetItemsResponse = await this.repository.get({
+        endpoint,
+        signal,
+      });
 
-      const data = {
-        items: [],
-        author: { name: "", lastname: "" },
-        categories: [],
-      };
+      // const data = {
+      //   items: [],
+      //   author: { name: "", lastname: "" },
+      //   categories: [],
+      // };
 
       return Promise.resolve(data);
     } catch (error: any) {
@@ -92,24 +93,25 @@ export class ItemsService {
 
       const endpoint = `${this.endpoint}/${id}/description`;
 
-      // const data: GetItemDescriptionResponse = await this.repository.get({
-      //   endpoint,
-      //   signal,
-      // });
+      debugger;
+      const data: GetItemDescriptionResponse = await this.repository.get({
+        endpoint,
+        signal,
+      });
 
-      const data = {
-        item: {
-          id: "",
-          title: "",
-          condition: "",
-          free_shopping: true,
-          picture: "",
-          price: { amount: 0, currency: "", decimals: 0 },
-          sold_quantity: 0,
-          description: "",
-        },
-        author: { name: "", lastname: "" },
-      };
+      // const data = {
+      //   item: {
+      //     id: "",
+      //     title: "",
+      //     condition: "",
+      //     free_shopping: true,
+      //     picture: "",
+      //     price: { amount: 0, currency: "", decimals: 0 },
+      //     sold_quantity: 0,
+      //     description: "",
+      //   },
+      //   author: { name: "", lastname: "" },
+      // };
       return Promise.resolve(data);
     } catch (error: any) {
       // Captura el error de Axios y formatea para que devuelva un HttpError consistente

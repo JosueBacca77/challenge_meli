@@ -11,6 +11,7 @@ const ENVIRONMENT_TEST = {};
 const ENVIRONMENT_PRODUCTION = {};
 
 const getEnvironment = (environment: string) => {
+  console.log("environment", environment);
   switch (environment) {
     case "development":
       return ENVIRONMENT_DEVELOPMENT;

@@ -1,5 +1,10 @@
 import ProductDetail from "@/features/ProductDetail/ProductDetail";
+import { Suspense } from "react";
 
 export default function PageProductDetail() {
-  return <ProductDetail />;
+  return (
+    <Suspense fallback={<></>}>
+      <ProductDetail />
+    </Suspense>
+  );
 }

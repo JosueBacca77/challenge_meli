@@ -4,7 +4,12 @@ import { HttpModule } from "src/common/http/http.module";
 
 @Module({
   imports: [HttpModule],
-  providers: [MeliApiItemsRepository],
-  exports: [MeliApiItemsRepository],
+  providers: [
+    {
+      provide: "ItemsRepository",
+      useClass: MeliApiItemsRepository,
+    },
+  ],
+  exports: ["ItemsRepository"],
 })
 export class MeliApiItemsRepositoryModule {}

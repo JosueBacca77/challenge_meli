@@ -1,11 +1,18 @@
-import { Injectable } from "@nestjs/common";
-import { SearchItemsDto, SearchItemsResponse } from "./dto/search-items.dto";
-import { MeliApiItemsRepository } from "src/repositories/meli-api-repository/meli-api-items-repository/meli-api-items.repository";
+import { Inject, Injectable } from "@nestjs/common";
+import { ItemsRepositoryInterface } from "../repositories/interfaces/items-repository.interface";
+import { GetItemDescriptionResponse, SearchItemsResponse } from "./types";
 
 @Injectable()
 export class ItemsService {
-  constructor(private readonly itemsRepository: MeliApiItemsRepository) {}
-  async searchItems(data: SearchItemsDto): Promise<SearchItemsResponse> {
-    return await this.itemsRepository.searchItems(data.search ?? "");
+  constructor(
+    @Inject("ItemsRepository")
+    private readonly itemsRepository: ItemsRepositoryInterface
+  ) {}
+  async searchItems(search: string): Promise<SearchItemsResponse> {
+    return await this.itemsRepository.searchItems(search);
+  }
+
+  async getItemDescription(id: string): Promise<GetItemDescriptionResponse> {
+    return await this.itemsRepository.getItemDescription(id);
   }
 }

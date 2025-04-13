@@ -12,13 +12,18 @@ import Button from "@/src/components/Button/Button";
 import { ButtonVariant } from "@/src/components/Button/types";
 import { useSearchParams } from "next/navigation";
 import useGetItemDescription from "./useGetItemDescription/useGetItemDescription";
+import { useParams } from "next/navigation";
 
 export default function ProductDetail() {
   const searchParams = useSearchParams();
 
-  const idValue: string | null = searchParams.get("id");
+  // const idValue: string | null = searchParams.get(":id");
 
-  const getItemDescription = useGetItemDescription(idValue || "");
+  const params = useParams();
+
+  const id = typeof params.id === "string" ? params.id : "";
+
+  const getItemDescription = useGetItemDescription(id);
   return (
     <div className={styles.productDetailWrapper}>
       <div className={styles.productDetailInfo}>
