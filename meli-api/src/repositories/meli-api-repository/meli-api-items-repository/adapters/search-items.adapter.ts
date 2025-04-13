@@ -9,6 +9,7 @@ import {
   GetItemResponse,
   SearchItemsResponse,
 } from "src/items/types";
+import { Item, ItemDescription } from "src/items/entities/item.entity";
 
 export function searchItemsAdapter(
   data: SearchItemsApiResponse
@@ -25,7 +26,7 @@ export function searchItemsAdapter(
 
 export function getItemAdapter(data: GetItemApiResponse): GetItemResponse {
   return {
-    item: data.item,
+    item: data.item as Item,
     author: {
       name: AUTHOR.name,
       lastname: AUTHOR.lastname,
@@ -37,7 +38,7 @@ export function getItemDescriptionAdapter(
   data: GetItemDescriptionApiResponse
 ): GetItemDescriptionResponse {
   return {
-    item: data.item,
+    item: data.item as ItemDescription,
     author: {
       name: AUTHOR.name,
       lastname: AUTHOR.lastname,

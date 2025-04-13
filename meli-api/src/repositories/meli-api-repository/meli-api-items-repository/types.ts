@@ -7,9 +7,9 @@ export interface SearchItemsApiResponse {
 }
 
 export interface GetItemApiResponse {
-  item: Item;
+  item: Item | null;
 }
 
 export interface GetItemDescriptionApiResponse {
-  item: ItemDescription;
+  item: ItemDescription | null;
 }

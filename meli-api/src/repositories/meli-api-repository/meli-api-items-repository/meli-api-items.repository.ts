@@ -17,6 +17,11 @@ import {
   getItemDescriptionAdapter,
   searchItemsAdapter,
 } from "./adapters/search-items.adapter";
+import {
+  mockGetItemById,
+  mockGetItemDescription,
+  mockSearchItems,
+} from "./mocked/helpers";
 
 @Injectable()
 export class MeliApiItemsRepository implements ItemsRepositoryInterface {
@@ -26,13 +31,15 @@ export class MeliApiItemsRepository implements ItemsRepositoryInterface {
 
   async searchItems(query: string): Promise<SearchItemsResponse> {
     try {
-      const params = {
-        q: query,
-      };
-      const data: SearchItemsApiResponse = await this.http.get({
-        endpoint: `${this.endpoint}/search`,
-        params,
-      });
+      // const params = {
+      //   q: query,
+      // };
+      // const data: SearchItemsApiResponse = await this.http.get({
+      //   endpoint: `${this.endpoint}/search`,
+      //   params,
+      // });
+
+      const data: SearchItemsApiResponse = mockSearchItems(query);
 
       const response: SearchItemsResponse = searchItemsAdapter(data);
 
@@ -51,16 +58,26 @@ export class MeliApiItemsRepository implements ItemsRepositoryInterface {
 
   async getItemById(id: string): Promise<GetItemResponse> {
     try {
-      const data: GetItemApiResponse = await this.http.get({
-        endpoint: `${this.endpoint}/items/${id}`,
-      });
+      // const data: GetItemApiResponse = await this.http.get({
+      //   endpoint: `${this.endpoint}/items/${id}`,
+      // });
+
+      const data: GetItemApiResponse = mockGetItemById(id);
+
+      if (!data.item) {
+        const httpError: HttpError = {
+          statusCode: 404,
+          message: "Item not found",
+        };
+        return Promise.reject(httpError);
+      }
 
       const response: GetItemResponse = getItemAdapter(data);
 
       return Promise.resolve(response);
     } catch (error) {
       const httpError: HttpError = {
-        statusCode: error.response?.status || 500, // Si no existe response, 500 por defecto
+        statusCode: error.response?.status || 500,
         message:
           error.response?.data?.message || "An unexpected error occurred",
       };
@@ -72,17 +89,26 @@ export class MeliApiItemsRepository implements ItemsRepositoryInterface {
 
   async getItemDescription(id: string): Promise<GetItemDescriptionResponse> {
     try {
-      const data: GetItemDescriptionApiResponse = await this.http.get({
-        endpoint: `${this.endpoint}/items/${id}/description`,
-      });
+      // const data: GetItemDescriptionApiResponse = await this.http.get({
+      //   endpoint: `${this.endpoint}/items/${id}/description`,
+      // });
 
+      const data: GetItemDescriptionApiResponse = mockGetItemDescription(id);
+
+      if (!data.item) {
+        const httpError: HttpError = {
+          statusCode: 404,
+          message: "Item not found",
+        };
+        return Promise.reject(httpError);
+      }
       const response: GetItemDescriptionResponse =
         getItemDescriptionAdapter(data);
 
       return Promise.resolve(response);
     } catch (error) {
       const httpError: HttpError = {
-        statusCode: error.response?.status || 500, // Si no existe response, 500 por defecto
+        statusCode: error.response?.status || 500,
         message:
           error.response?.data?.message || "An unexpected error occurred",
       };
