@@ -118,7 +118,7 @@ export const MOCKED_ITEMS = [
     title: "Cámara Sony Alpha a6000 Mirrorless",
     price: { currency: "ARS", amount: 320000, decimals: 30 },
     picture: "https://example.com/sony.jpg",
-    condition: "new",
+    condition: "Nuevo",
     free_shipping: true,
     sold_quantity: 20,
     description:
