@@ -7,6 +7,8 @@ import { useEffect } from "react";
 import { useItems } from "@/src/context/items/ItemsProvider";
 import { Item } from "@/models/Item.model";
 import Spinner from "@/src/components/Spinner/Spinner";
+import Text from "@/src/components/Text/Text";
+import { TextColors } from "@/src/components/Text/types";
 
 export default function ProductsSearch() {
   const searchParams = useSearchParams();
@@ -31,7 +33,14 @@ export default function ProductsSearch() {
         !getItems.error &&
         items.map((item: Item) => <ProductItem item={item} key={item.id} />)}
       {getItems.loading && <Spinner />}
-      {!getItems.loading && !items && <>No se han encontrado resultados</>}
+      {!getItems.loading && !items.length && (
+        <div className={styles.noContentWrapper}>
+          <Text
+            value="No se han encontrado resultados.."
+            color={TextColors.Tertiary}
+          />
+        </div>
+      )}
     </div>
   );
 }

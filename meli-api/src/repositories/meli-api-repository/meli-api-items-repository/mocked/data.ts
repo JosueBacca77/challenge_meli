@@ -26,7 +26,8 @@ export const MOCKED_ITEMS = [
     condition: "Completo Único",
     free_shipping: true,
     sold_quantity: 87,
-    description: "iPod Touch de 7ma generación con 32GB de almacenamiento.",
+    description:
+      "El iPod Touch de 7ma generación combina el diseño clásico con la potencia de un chip A10 Fusion. Ideal para música, juegos y aplicaciones. Su pantalla Retina de 4 pulgadas ofrece colores vibrantes y gran nitidez. Almacenamiento de 32GB para todas tus necesidades.",
     category: "ipod",
     location: "Córdoba",
   },
@@ -38,7 +39,8 @@ export const MOCKED_ITEMS = [
     condition: "Usado",
     free_shipping: false,
     sold_quantity: 120,
-    description: "iPod Nano compacto, ideal para llevar música a todos lados.",
+    description:
+      "El iPod Nano es perfecto para llevar tu música favorita a cualquier lugar. Su diseño compacto y ligero lo hace ideal para deportistas. Incluye pantalla multitáctil y controles intuitivos. 16GB de capacidad para almacenar cientos de canciones.",
     category: "ipod",
     location: "Santa Fe",
   },
@@ -50,7 +52,8 @@ export const MOCKED_ITEMS = [
     condition: "Usado",
     free_shipping: true,
     sold_quantity: 65,
-    description: "Clásico iPod de alta capacidad para verdaderos fanáticos.",
+    description:
+      "Un clásico de Apple que nunca pasa de moda. El iPod Classic ofrece 160GB de almacenamiento para guardar miles de canciones, podcasts y videos. Su famosa rueda de clic facilita la navegación. Perfecto para coleccionistas y amantes de la música.",
     category: "ipod",
     location: "Mendoza",
   },
@@ -64,7 +67,8 @@ export const MOCKED_ITEMS = [
     condition: "Nuevo",
     free_shipping: true,
     sold_quantity: 34,
-    description: "Notebook con procesador AMD Ryzen 5 y 8GB de RAM.",
+    description:
+      "Esta notebook Lenovo IdeaPad 3 está equipada con un procesador AMD Ryzen 5, ideal para tareas de oficina, estudio o entretenimiento. Su pantalla Full HD de 15.6'' ofrece una excelente visualización. Incluye 8GB de RAM y SSD para mayor velocidad.",
     category: "notebook",
     location: "Córdoba",
   },
@@ -76,7 +80,8 @@ export const MOCKED_ITEMS = [
     condition: "Nuevo",
     free_shipping: true,
     sold_quantity: 28,
-    description: "Notebook económica para tareas básicas con Windows 11.",
+    description:
+      "La HP 250 G8 es una notebook confiable para tareas diarias. Viene con procesador Intel i3 de 11va generación y pantalla de 15.6 pulgadas. Cuenta con Windows 11 preinstalado, ideal para estudiantes o uso doméstico. Diseño moderno y liviano.",
     category: "notebook",
     location: "Capital Federal",
   },
@@ -88,7 +93,8 @@ export const MOCKED_ITEMS = [
     condition: "Completo Único",
     free_shipping: true,
     sold_quantity: 15,
-    description: "Alto rendimiento con 16GB RAM y SSD de 512GB.",
+    description:
+      "La Dell Inspiron 15 ofrece alto rendimiento gracias a su procesador Intel i7 de 11va generación. Con 16GB de RAM y un disco SSD de 512GB, esta notebook es perfecta para edición, multitarea y productividad. Su pantalla antirreflejo mejora la experiencia visual.",
     category: "notebook",
     location: "Capital Federal",
   },
@@ -102,7 +108,8 @@ export const MOCKED_ITEMS = [
     condition: "Completo Único",
     free_shipping: true,
     sold_quantity: 45,
-    description: "Cámara réflex digital ideal para fotografía profesional.",
+    description:
+      "La Canon EOS 4000D es ideal para quienes comienzan en el mundo de la fotografía réflex. Cuenta con sensor de 18MP, grabación de video Full HD y conectividad Wi-Fi. Ligera y fácil de usar, incluye funciones automáticas para facilitar la toma de fotos.",
     category: "camera",
     location: "Capital Federal",
   },
@@ -114,8 +121,9 @@ export const MOCKED_ITEMS = [
     condition: "new",
     free_shipping: true,
     sold_quantity: 20,
-    description: "Compacta y potente, con enfoque automático ultrarrápido.",
-    category: "Nuevo",
+    description:
+      "La Sony Alpha a6000 es una cámara mirrorless compacta con enfoque automático ultrarrápido. Ideal para capturar momentos espontáneos, ofrece calidad profesional con 24.3MP y grabación Full HD. Su visor electrónico y controles manuales completan la experiencia.",
+    category: "camera",
     location: "Santa Fe",
   },
   {
@@ -126,7 +134,8 @@ export const MOCKED_ITEMS = [
     condition: "Usado",
     free_shipping: false,
     sold_quantity: 31,
-    description: "Ideal para iniciarte en la fotografía réflex.",
+    description:
+      "La Nikon D3500 es una réflex ideal para principiantes. Este kit incluye lente 18-55mm, modo guía y conectividad Bluetooth. Su sensor de 24.2MP y capacidad de grabar video en Full HD la convierten en una excelente opción para aprender fotografía.",
     category: "camera",
     location: "Capital Federal",
   },
@@ -138,7 +147,8 @@ export const MOCKED_ITEMS = [
     condition: "Nuevo",
     free_shipping: true,
     sold_quantity: 18,
-    description: "Captura imágenes y videos en alta calidad.",
+    description:
+      "La Rebel T7 combina rendimiento y simplicidad. Su sensor de 24.1MP permite capturar imágenes nítidas y vívidas, mientras que su grabación en Full HD es perfecta para video. Ideal para quienes desean subir de nivel en fotografía sin complicaciones.",
     category: "camera",
     location: "Santa Fe",
   },

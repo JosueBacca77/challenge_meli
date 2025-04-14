@@ -6,10 +6,14 @@ import { memo } from "react";
 const SearchButtonIcon = memo(function SearchButtonIcon(
   props: SearchButtonIconProps
 ) {
-  const { onClick } = props;
+  const { disabled, onClick } = props;
 
   return (
-    <button className={styles.searchButtonIcon} onClick={onClick}>
+    <button
+      className={styles.searchButtonIcon}
+      disabled={disabled}
+      onClick={onClick}
+    >
       <Image src="/ic_search.png" alt="lupa" width={24} height={24} />
     </button>
   );

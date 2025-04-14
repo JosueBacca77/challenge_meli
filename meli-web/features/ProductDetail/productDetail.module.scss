@@ -16,12 +16,19 @@
     width: 100%;
     & > .productDetailInfo {
       display: flex;
-      gap: 78px;
       & > .productImage {
-        margin-left: 122px;
-        margin-top: 62px;
+        width: 100%;
+        & > .productDetailDescription {
+          display: flex;
+          flex-direction: column;
+          justify-content: space-between;
+          padding: 2rem;
+          gap: 2rem;
+        }
         & > .productItemImage {
           object-fit: contain;
+          width: 100%;
+          height: auto;
         }
       }
       & > .productDetaiSummary {
@@ -41,14 +48,6 @@
           }
         }
       }
-    }
-
-    & > .productDetailDescription {
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-      padding: 2rem;
-      gap: 2rem;
     }
   }
 }

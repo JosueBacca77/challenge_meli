@@ -1,18 +1,27 @@
 import InputText from "@/src/components/InputText/InputText";
-import { useCallback, useState } from "react";
+import { useCallback, useMemo, useState } from "react";
 import { HeaderContentLabels } from "../../consts/labels";
 import styles from "./searchBar.module.scss";
-import { redirect } from "next/navigation";
+import { redirect, useSearchParams } from "next/navigation";
 import SearchButtonIcon from "../SearchButtonIcon/SearchButtonIcon";
 
 export default function SearchBar() {
   const [searchValue, setSearchValue] = useState("");
+
+  const searchParams = useSearchParams();
+
+  const searchCurrentValue = searchParams.get("search");
+
+  const ableToSearch: boolean = useMemo(() => {
+    return !!searchValue && searchValue !== searchCurrentValue;
+  }, [searchCurrentValue, searchValue]);
 
   const handleChangeSearchValue = (value: string) => {
     setSearchValue(value);
   };
 
   const handleSearch = useCallback(() => {
+    if (!ableToSearch) return;
     const trimmed = searchValue.trim();
 
     if (!trimmed) {
@@ -20,7 +29,7 @@ export default function SearchBar() {
     }
 
     redirect(`/items?search=${trimmed}`);
-  }, [searchValue]);
+  }, [searchValue, searchCurrentValue]);
 
   const handleKeyDown: React.KeyboardEventHandler<HTMLInputElement> =
     useCallback(
@@ -42,7 +51,7 @@ export default function SearchBar() {
         onChange={handleChangeSearchValue}
         onKeyDown={handleKeyDown}
       />
-      <SearchButtonIcon onClick={handleSearch} />
+      <SearchButtonIcon disabled={!ableToSearch} onClick={handleSearch} />
     </div>
   );
 }

@@ -53,6 +53,13 @@ export default function ProductDetail() {
                 width={680}
                 height={700}
               />
+              <div className={styles.productDetailDescription}>
+                <Text
+                  fontSize={TextSizes.CUSTOM_28}
+                  value={"Descripción del producto"}
+                />
+                <Text color={TextColors.Secondary} value={item.description} />
+              </div>
             </div>
             <div className={styles.productDetaiSummary}>
               <div className={styles.productDetailCondition}>
@@ -76,13 +83,6 @@ export default function ProductDetail() {
                 />
               </div>
             </div>
-          </div>
-          <div className={styles.productDetailDescription}>
-            <Text
-              fontSize={TextSizes.CUSTOM_28}
-              value={"Descripción del producto"}
-            />
-            <Text color={TextColors.Secondary} value={item.description} />
           </div>
         </div>
       )}

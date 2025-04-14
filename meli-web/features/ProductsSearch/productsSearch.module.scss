@@ -6,4 +6,7 @@
   flex-direction: column;
   height: 84vh;
   overflow-y: auto;
+  & > .noContentWrapper {
+    margin: auto;
+  }
 }
