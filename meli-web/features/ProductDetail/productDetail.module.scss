@@ -16,6 +16,7 @@
     width: 100%;
     & > .productDetailInfo {
       display: flex;
+      gap: 1rem;
       & > .productImage {
         width: 100%;
         & > .productDetailDescription {
