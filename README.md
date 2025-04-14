@@ -1,6 +1,6 @@
 # 🚀 Bienvenido al Challenge de Mercado Libre
 
-¡Hola! Soy **Josué Bacca**, y este es mi desarrollo para el challenge técnico de **Mercado Libre**.
+¡Hola! Te presento mi desarrollo para el challenge técnico de **Mercado Libre**.
 
 ---
 
@@ -79,7 +79,7 @@ npm run dev
 
 ## 🔍 ¡Listo para probar!
 
-Abrí tu navegador y accedé a [http://localhost:3000](http://localhost:3000) para comenzar a explorar la aplicación.
+Abrí tu navegador y accedé a [http://localhost:3001](http://localhost:3001) para comenzar a explorar la aplicación.
 
 > ⚠️ **Importante:** Este proyecto utiliza datos mockeados.  
 > Por eso, para probar correctamente la funcionalidad de búsqueda, se recomienda utilizar términos como:
@@ -90,5 +90,6 @@ Abrí tu navegador y accedé a [http://localhost:3000](http://localhost:3000) pa
 
 ---
 
-Gracias por revisar mi challenge 😊  
+Cualquier cosnulta o sugerencia es bienvenida! te dejo mi [https://www.linkedin.com/in/josue-bacca/](linkedin)
+Gracias por tu tiempo  
 **Josué Bacca**
