@@ -12,16 +12,14 @@ import {
   GetItemResponse,
   SearchItemsResponse,
 } from "src/items/types";
-import {
-  getItemAdapter,
-  getItemDescriptionAdapter,
-  searchItemsAdapter,
-} from "./adapters/search-items.adapter";
+import { searchItemsAdapter } from "./adapters/search-items.adapter";
 import {
   mockGetItemById,
   mockGetItemDescription,
   mockSearchItems,
 } from "./mocked/helpers";
+import { getItemAdapter } from "./adapters/get-item.adapter";
+import { getItemDescriptionAdapter } from "./adapters/get-item-description.adapter";
 
 @Injectable()
 export class MeliApiItemsRepository implements ItemsRepositoryInterface {

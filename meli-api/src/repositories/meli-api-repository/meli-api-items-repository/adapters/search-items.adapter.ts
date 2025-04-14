@@ -23,25 +23,3 @@ export function searchItemsAdapter(
     },
   };
 }
-
-export function getItemAdapter(data: GetItemApiResponse): GetItemResponse {
-  return {
-    item: data.item as Item,
-    author: {
-      name: AUTHOR.name,
-      lastname: AUTHOR.lastname,
-    },
-  };
-}
-
-export function getItemDescriptionAdapter(
-  data: GetItemDescriptionApiResponse
-): GetItemDescriptionResponse {
-  return {
-    item: data.item as ItemDescription,
-    author: {
-      name: AUTHOR.name,
-      lastname: AUTHOR.lastname,
-    },
-  };
-}
