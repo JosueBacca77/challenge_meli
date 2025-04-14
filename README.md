@@ -90,6 +90,6 @@ Abrí tu navegador y accedé a [http://localhost:3001](http://localhost:3001) pa
 
 ---
 
-Cualquier cosnulta o sugerencia es bienvenida! te dejo mi [https://www.linkedin.com/in/josue-bacca/](linkedin)
+Cualquier cosnulta o sugerencia es bienvenida! te dejo mi [LinkedIn](https://www.linkedin.com/in/josue-bacca/)
 Gracias por tu tiempo  
 **Josué Bacca**
