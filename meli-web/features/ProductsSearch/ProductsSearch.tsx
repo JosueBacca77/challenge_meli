@@ -31,9 +31,10 @@ export default function ProductsSearch() {
     <div className={styles.productsSearchContent}>
       {!getItems.loading &&
         !getItems.error &&
+        items &&
         items.map((item: Item) => <ProductItem item={item} key={item.id} />)}
       {getItems.loading && <Spinner />}
-      {!getItems.loading && !items.length && (
+      {!getItems.loading && items && !items.length && (
         <div className={styles.noContentWrapper}>
           <Text
             value="No se han encontrado resultados.."

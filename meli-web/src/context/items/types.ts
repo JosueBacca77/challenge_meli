@@ -6,7 +6,7 @@ export type BreadcrumbItem = {
 };
 
 export type ItemsContextType = {
-  items: Item[];
+  items: Item[] | null;
   categories: string[];
   setCategories: (categories: string[]) => void;
   setItems: (items: Item[]) => void;

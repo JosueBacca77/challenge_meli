@@ -3,7 +3,7 @@ import { useContext, useState } from "react";
 import { ItemsContext } from "./items";
 
 export const ItemsProvider = ({ children }: { children: React.ReactNode }) => {
-  const [items, setItems] = useState<Item[]>([]);
+  const [items, setItems] = useState<Item[] | null>(null);
   const [categories, setCategories] = useState<string[]>([]);
 
   return (
