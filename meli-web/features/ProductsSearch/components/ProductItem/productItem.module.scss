@@ -16,6 +16,12 @@
     & > .productInfoDetail {
       & > .productInfoPrice {
         margin-bottom: 2rem;
+        display: flex;
+        align-items: flex-end;
+        gap: 1rem;
+        & > .shipping {
+          margin-bottom: 0.25rem;
+        }
       }
     }
 

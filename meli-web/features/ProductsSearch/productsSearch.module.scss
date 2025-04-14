@@ -4,4 +4,6 @@
   background-color: $primary-background;
   display: flex;
   flex-direction: column;
+  height: 84vh;
+  overflow-y: auto;
 }

@@ -10,7 +10,7 @@ export interface Item {
   price: Price;
   picture: string;
   condition: string;
-  free_shopping: boolean;
+  free_shipping: boolean;
   location: string;
 }
 

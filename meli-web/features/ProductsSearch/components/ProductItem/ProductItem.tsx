@@ -25,6 +25,15 @@ export default function ProductItem(props: ProductItemProps) {
           <div className={styles.productInfoDetail}>
             <div className={styles.productInfoPrice}>
               <Text fontSize={TextSizes.XL_2} value={formattedPrice} />
+              {item.free_shipping ? (
+                <Image
+                  className={styles.shipping}
+                  src={"/ic_shipping.png"}
+                  alt={`${item.title} shipping true`}
+                  width={16}
+                  height={16}
+                />
+              ) : null}
             </div>
             <div>
               <Text fontSize={TextSizes.LG} value={item.title} />

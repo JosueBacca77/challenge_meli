@@ -14,6 +14,7 @@ import { useParams } from "next/navigation";
 import { useEffect, useState } from "react";
 import { ItemDescription } from "@/models/Item.model";
 import { extractVisualDecimals, formatPrice } from "@/utils/money";
+import Spinner from "@/src/components/Spinner/Spinner";
 
 export default function ProductDetail() {
   const [item, setItem] = useState<ItemDescription | null>(null);
@@ -40,9 +41,9 @@ export default function ProductDetail() {
     : "";
 
   return (
-    <div className={styles.productDetailWrapper}>
+    <div className={styles.productDetailContainer}>
       {item && !getItemDescription.loading && (
-        <>
+        <div className={styles.productDetailWrapper}>
           <div className={styles.productDetailInfo}>
             <div className={styles.productImage}>
               <Image
@@ -83,10 +84,17 @@ export default function ProductDetail() {
             />
             <Text color={TextColors.Secondary} value={item.description} />
           </div>
-        </>
+        </div>
       )}
-      {!item && !getItemDescription.loading && <>NO SE HA ENCONTRADO EL ITEM</>}
-      {!item && getItemDescription.loading && <>CARGANDO</>}
+      {!item && !getItemDescription.loading && (
+        <div className={styles.noContentWrapper}>
+          <Text
+            value="No se ha econtrado el producto.."
+            color={TextColors.Tertiary}
+          />
+        </div>
+      )}
+      {getItemDescription.loading && <Spinner />}
     </div>
   );
 }

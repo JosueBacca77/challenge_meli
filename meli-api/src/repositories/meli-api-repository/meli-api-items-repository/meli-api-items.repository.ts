@@ -27,6 +27,9 @@ import {
 export class MeliApiItemsRepository implements ItemsRepositoryInterface {
   private readonly endpoint = process.env.MELI_API_URL;
 
+  private sleep = async (ms: number) =>
+    new Promise((resolve) => setTimeout(resolve, ms));
+
   constructor(private readonly http: HttpService) {}
 
   async searchItems(query: string): Promise<SearchItemsResponse> {
@@ -38,6 +41,8 @@ export class MeliApiItemsRepository implements ItemsRepositoryInterface {
       //   endpoint: `${this.endpoint}/search`,
       //   params,
       // });
+
+      await this.sleep(3000);
 
       const data: SearchItemsApiResponse = mockSearchItems(query);
 
@@ -61,6 +66,7 @@ export class MeliApiItemsRepository implements ItemsRepositoryInterface {
       // const data: GetItemApiResponse = await this.http.get({
       //   endpoint: `${this.endpoint}/items/${id}`,
       // });
+      await this.sleep(3000);
 
       const data: GetItemApiResponse = mockGetItemById(id);
 
@@ -92,6 +98,7 @@ export class MeliApiItemsRepository implements ItemsRepositoryInterface {
       // const data: GetItemDescriptionApiResponse = await this.http.get({
       //   endpoint: `${this.endpoint}/items/${id}/description`,
       // });
+      await this.sleep(3000);
 
       const data: GetItemDescriptionApiResponse = mockGetItemDescription(id);
 

@@ -6,6 +6,7 @@ import useGetItems from "./hooks/useGetItems/useGetItems";
 import { useEffect } from "react";
 import { useItems } from "@/src/context/items/ItemsProvider";
 import { Item } from "@/models/Item.model";
+import Spinner from "@/src/components/Spinner/Spinner";
 
 export default function ProductsSearch() {
   const searchParams = useSearchParams();
@@ -29,7 +30,7 @@ export default function ProductsSearch() {
       {!getItems.loading &&
         !getItems.error &&
         items.map((item: Item) => <ProductItem item={item} key={item.id} />)}
-      {getItems.loading && !getItems.response && <>Cargando</>}
+      {getItems.loading && <Spinner />}
       {!getItems.loading && !items && <>No se han encontrado resultados</>}
     </div>
   );
